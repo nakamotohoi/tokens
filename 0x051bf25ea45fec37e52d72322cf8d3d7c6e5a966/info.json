@@ -1,0 +1,17 @@
+pragma solidity ^0.8.0;
+
+// import the ERC20 interface
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.1/contracts/token/ERC20/ERC20.sol";
+
+contract Nakamotohoi30 is ERC20 {
+    // set the token name, symbol, decimals, and initial supply
+    constructor(uint256 initialSupply) ERC20("Nakamotohoi.3.0", "Hoi") {
+       uint8  setupDecimals=4;
+        _mint(msg.sender, initialSupply * (10 ** decimals()));
+    }
+
+    // add a function to allow burning tokens
+    function burn(uint256 amount) public {
+        _burn(msg.sender, amount);
+    }
+}
